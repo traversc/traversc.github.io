@@ -6,81 +6,58 @@ layout: default
 <div class="site-header-container {% if site.cover %}has-cover{% endif %}" {% if site.cover %}style="background-image: url({{ site.cover | prepend: site.baseurl }});"{% endif %}>
   <div class="scrim {% if site.cover %}has-cover{% endif %}">
     <header class="site-header">
-      <h1 class="title">{{ site.title }}</h1>
-      {% if site.subtitle %}<p class="subtitle">{{ site.subtitle }}</p>{% endif %}
+      <style>
+        /*me circle*/
+        .me_circle {
+            position: relative; 
+            z-index: 100;
+            background-image: url("http://travers.im/wp-content/uploads/2016/05/me-3-300x300.jpg");
+            background-color: rgba(255,255,255,1);
+            background-size: 225px 225px;
+            border-radius: 9999px;
+            height: 200px;
+            width: 200px;
+            box-shadow: 0px 1px 8px 0 rgba(0, 0, 0, 0.9);
+        }
+        .me_circle_container {
+        }
+        .me_circle_outline {
+            background-color: rgba(255,255,255,0);
+            border-radius: 9999px;
+            height: 200px;
+            width: 200px;
+            padding: 2px;
+            margin: 0 auto;
+        }
+        .outer {
+            width: 0px; /* Or zero, or something very small */
+            margin: auto;
+            overflow: visible;
+        }
+        .inner {
+            margin-top: -100px;
+        }
+      </style>
     </header>
   </div>
 </div>
 
-<div class="wrapper">
-<ul class="post-list">
-  {% for post in paginator.posts %}
-  <li>
-    <h2>
-      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-    </h2>
-    <section class="post-excerpt" itemprop="description">
-      <p>{{ post.content | strip_html | truncatewords: 50 }}</p>
-    </section>
-    <section class="post-meta">
-      <div class="post-date">{{ post.date | date: "%B %-d, %Y" }}</div>
-      <div class="post-categories">
-      {% if post.categories.size > 0 %}in {% for cat in post.categories %}
-        {% if site.jekyll-archives %}
-        <a href="{{ site.baseurl }}/category/{{ cat }}">{{ cat | capitalize }}</a>{% if forloop.last == false %}, {% endif %}
-        {% else %}
-        <a href="{{ site.baseurl }}/posts/#{{ cat }}">{{ cat | capitalize }}</a>{% if forloop.last == false %}, {% endif %}
-        {% endif %}
-      {% endfor %}{% endif %}
-      </div>
-    </section>
-  </li>
-  {% if forloop.last == false %}
-  <hr>
-  {% endif %}
-  {% endfor %}
-</ul>
+<div class="wrapper"><div class = "inner">
+  <div id="me_circle_container" class="me_circle_container">
+  <div id="me_circle_outline" class="me_circle_outline">
+  <div id="me_circle" class="me_circle"></div></div></div>
+  <ul class="post-list">
+    <li>
+      <h2>
+        Aloha!
+      </h2>
+      <section class="post-excerpt" itemprop="description">
+        <p>I recently obtained my Ph.D. from the University of Hawaii in Molecular Biosciences and Bioengineering University, focusing on Bioinformatics applications to cancer research.</p>
 
-<nav class="pagination" role="navigation">
-	<p>
-    {% if paginator.previous_page %}
-			{% if paginator.page == 2 %}
-			<a class="newer-posts" href="{% if site.baseurl %}{{ site.baseurl }}{% endif %}/">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-square fa-stack-2x"></i>
-          <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
-        </span>
-      </a>
-			{% else %}
-			<a class="newer-posts" href="{{ site.baseurl }}/page{{paginator.previous_page}}">
-				<span class="fa-stack fa-lg">
-					<i class="fa fa-square fa-stack-2x"></i>
-					<i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
-				</span>
-			</a>
-			{% endif %}
-		{% else %}
-		<span class="fa-stack fa-lg">
-      <i class="fa fa-square fa-stack-2x"></i>
-      <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
-    </span>
-		{% endif %}
-		<span class="page-number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
-		{% if paginator.next_page %}
-		<a class="newer-posts" href="{{ site.baseurl }}/page{{paginator.next_page}}">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-square fa-stack-2x"></i>
-        <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
-      </span>
-    </a>
-		{% else %}
-		<span class="fa-stack fa-lg">
-      <i class="fa fa-square fa-stack-2x"></i>
-      <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
-    </span>
-		{% endif %}
-	</p>
-</nav>
-
+            <p>Now I am working as a Computational Biologist at Adaptive Biotechnologies. We are working on next-generation sequencing-based assays that will help solve cancer!</p>
+      </section>
+    </li>
+    <hr>
+  </ul>
 </div>
 </div>

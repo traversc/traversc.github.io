@@ -71,6 +71,8 @@ pre code.hljs {
 
 .site-header-container, .post-header-container {
 	width: 100%;
+	max-height: 320px;
+	margin: auto;
 	text-align: center;
 	&.has-cover {
 		color: $white;
@@ -322,8 +324,7 @@ pre code.hljs {
 	*/
 	.page {
 		.post-header {
-			padding: 0.5em 1em 1em 1em;
-			text-align: center;
+			padding: 0.5em 1em 1em 0.5em;
 		}
 		.posts-list {
 			@extend %default-ul;
